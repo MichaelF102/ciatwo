@@ -489,7 +489,7 @@ if section == "Results":
     st.write("3. **Input File**: A 10 mb Json File")
     if st.button("Click to view Result 3"): 
         st.image("r31.png", use_container_width=True)
-        st.image("r32.png", use_column_width=True)
+        st.image("r32.png", use_container_width=True)
         st.image("r33.png", use_container_width=True)
 
 
@@ -817,4 +817,5 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
