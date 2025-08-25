@@ -9,6 +9,8 @@ from collections import Counter
 from PyPDF2 import PdfReader
 import plotly.express as px
 import plotly.graph_objects as go
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 st.set_page_config(page_title="📉 CIA2", layout="wide")
 
@@ -815,3 +817,4 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
