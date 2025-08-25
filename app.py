@@ -439,7 +439,7 @@ else:
                            compressed_bytes, file_name="compressed.gz")
         
 if section == "General":
-    st.image("dm1.png", caption="Space-Efficient Data Management", use_column_width=True    )
+    st.image("dm1.png", caption="Space-Efficient Data Management",  use_container_width=True    )
 
 if section == "Literature Review":
     
@@ -451,44 +451,44 @@ The challenge of managing ever-expanding datasets has led to the development of 
 Data retention policies define how long data should be stored before it is systematically deleted. These policies can be time-based (e.g., retain logs for 90 days) or event-based (e.g., delete customer data upon account closure). Automated deletion reduces the risk of data sprawl and ensures compliance with regulatory frameworks such as GDPR and CCPA, which require timely removal of personally identifiable information (PII). However, overly aggressive deletion can result in the loss of valuable historical insights, necessitating careful policy design.
             
     """)
-    st.image("lr1.jpeg", use_column_width=True) 
+    st.image("lr1.jpeg",  use_container_width=True) 
     st.write("""### **2.2 Log Rotation and Pruning** 
 For systems producing continuous log output, log rotation is a widely used practice where active logs are periodically archived and replaced with new files. Tools like logrotate on Linux enable scheduled rotation, compression, and deletion. Pruning involves selectively removing log entries based on relevance, severity levels, or age, thus reducing noise in analysis and storage burden. The main trade-off is the potential loss of fine-grained historical debugging information.
     """)
-    st.image("lr2.png", use_column_width=True) 
+    st.image("lr2.png",  use_container_width=True) 
 
     st.write("""### **2.3 Data Deduplication** 
 Data deduplication eliminates redundant copies of information by storing a single instance and referencing it wherever required. This is particularly effective in backup systems, where repeated snapshots often contain large overlaps. Techniques include fixed-size chunking, variable-size chunking (content-defined chunking), and fingerprinting using cryptographic hashes (e.g., SHA-256). While deduplication offers substantial storage savings, it introduces CPU overhead and can complicate retrieval in highly fragmented datasets.
     """)
-    st.image("lr3.jpg", use_column_width=True) 
+    st.image("lr3.jpg",  use_container_width=True) 
     st.write("""### **2.4 Compression and Archiving** 
 Compression algorithms like gzip, bzip2, and zlib reduce file sizes by encoding data more efficiently without loss of information. Archiving tools (e.g., tar) bundle files together for structured storage, often coupled with compression. This is optimal for cold data—information that is infrequently accessed but still needs to be retained for compliance or historical analysis. The trade-off lies in increased CPU usage during compression/decompression and slower access times for archived data.
     """)
-    st.image("lr4.svg", use_column_width=True)
+    st.image("lr4.svg",  use_container_width=True)
     st.write("""### **2.5 Real-time Data Aggregation and Summarization**
 In streaming and analytics systems, real-time aggregation condenses raw data into smaller, more meaningful summaries (e.g., counts, averages, rolling windows). Frameworks like Apache Kafka Streams, Apache Flink, and Spark Streaming perform on-the-fly transformations to store only aggregated metrics instead of raw event data. This reduces storage costs and accelerates analytical queries but limits the ability to perform fine-grained, retrospective analyses on original data.
 Collectively, these techniques form a toolkit for organizations to balance storage efficiency, data utility, and compliance requirements. The choice of method often depends on system scale, data access patterns, and the acceptable trade-off between data granularity and space savings.
     """)
-    st.image("lr6.webp", use_column_width=True)
+    st.image("lr6.webp",  use_container_width=True)
 
 if section == "Results":
     st.write("""## Results""")
     st.write("## 1. **Input File**: A pdf file with 65 pages, 2.4 MB in size.")
     if st.button("Click to view Result 1"): 
-        st.image("r1.png", use_column_width=True)
-        st.image("r2.png", use_column_width=True)
-        st.image("r3.png", use_column_width=True)
+        st.image("r1.png",  use_container_width=True)
+        st.image("r2.png",  use_container_width=True)
+        st.image("r3.png",  use_container_width=True)
     st.write("2. **Input File**: A 50 mb txt file with https://examplefile.com written ")
     if st.button("Click to view Result 2"): 
-        st.image("r21.png", use_column_width=True)
-        st.image("r22.png", use_column_width=True)
-        st.image("r23.png", use_column_width=True)
-        st.image("r24.png", use_column_width=True)
+        st.image("r21.png",  use_container_width=True)
+        st.image("r22.png",  use_container_width=True)
+        st.image("r23.png",  use_container_width=True)
+        st.image("r24.png",  use_container_width=True)
     st.write("3. **Input File**: A 10 mb Json File")
     if st.button("Click to view Result 3"): 
-        st.image("r31.png", use_column_width=True)
-        st.image("r32.png", use_column_width=True)
-        st.image("r33.png", use_column_width=True)
+        st.image("r31.png",  use_container_width=True)
+        st.image("r32.png",  use_container_width=True)
+        st.image("r33.png",  use_container_width=True)
 
 
 if section == "Code Snippets":
@@ -812,6 +812,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 """)
     st.image("dgr.jpg", use_column_width=True)
+
 
 
 st.sidebar.write("Made By Michael Fernandes")
