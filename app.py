@@ -439,7 +439,7 @@ else:
                            compressed_bytes, file_name="compressed.gz")
         
 if section == "General":
-    st.image("dm1.png", caption="Space-Efficient Data Management",  use_container_width=True    )
+    st.image("dm1.png", caption="Space-Efficient Data Management", use_container_width=True    )
 
 if section == "Literature Review":
     
@@ -464,20 +464,20 @@ Data deduplication eliminates redundant copies of information by storing a singl
     st.write("""### **2.4 Compression and Archiving** 
 Compression algorithms like gzip, bzip2, and zlib reduce file sizes by encoding data more efficiently without loss of information. Archiving tools (e.g., tar) bundle files together for structured storage, often coupled with compression. This is optimal for cold data—information that is infrequently accessed but still needs to be retained for compliance or historical analysis. The trade-off lies in increased CPU usage during compression/decompression and slower access times for archived data.
     """)
-    st.image("lr4.svg",  use_container_width=True)
+    st.image("lr4.svg", use_container_width=True)
     st.write("""### **2.5 Real-time Data Aggregation and Summarization**
 In streaming and analytics systems, real-time aggregation condenses raw data into smaller, more meaningful summaries (e.g., counts, averages, rolling windows). Frameworks like Apache Kafka Streams, Apache Flink, and Spark Streaming perform on-the-fly transformations to store only aggregated metrics instead of raw event data. This reduces storage costs and accelerates analytical queries but limits the ability to perform fine-grained, retrospective analyses on original data.
 Collectively, these techniques form a toolkit for organizations to balance storage efficiency, data utility, and compliance requirements. The choice of method often depends on system scale, data access patterns, and the acceptable trade-off between data granularity and space savings.
     """)
-    st.image("lr6.webp",  use_container_width=True)
+    st.image("lr6.webp", use_container_width=True)
 
 if section == "Results":
     st.write("""## Results""")
     st.write("## 1. **Input File**: A pdf file with 65 pages, 2.4 MB in size.")
     if st.button("Click to view Result 1"): 
-        st.image("r1.png",  use_container_width=True)
-        st.image("r2.png",  use_container_width=True)
-        st.image("r3.png",  use_container_width=True)
+        st.image("r1.png", use_container_width=True)
+        st.image("r2.png", use_container_width=True)
+        st.image("r3.png", use_container_width=True)
     st.write("2. **Input File**: A 50 mb txt file with https://examplefile.com written ")
     if st.button("Click to view Result 2"): 
         st.image("r21.png",  use_container_width=True)
@@ -816,3 +816,4 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
