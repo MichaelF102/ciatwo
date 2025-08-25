@@ -811,9 +811,10 @@ Efficient space management is not merely a technical concern but a foundational 
 This paper investigates existing techniques and proposes a practical hybrid solution aimed at reducing storage footprint while retaining essential data fidelity. The approach is demonstrated with an implementation using Python and evaluated for its applicability and extensibility.
 
 """)
-    st.image("dgr.jpg", use_column_width=True)
+    st.image("dgr.jpg", use_container_width=True)
 
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
