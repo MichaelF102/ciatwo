@@ -339,7 +339,7 @@ else:
     # Interactive tool (settings are visible only in this section)
     st.subheader("📊 Data Reduction Tool")
     if not uploaded:
-        st.info("⬆️ Upload a file in the sidebar to begin.")
+        st.info(" Upload a file in the sidebar to begin.")
         st.stop()
 
     raw_lines = read_file(uploaded)
@@ -357,43 +357,43 @@ else:
 
     # Trim
     if run_trim:
-        with st.spinner("✂️ Trimming in progress…"):
+        with st.spinner(" Trimming in progress…"):
             t0 = time.time()
             current_lines = trim_keep_last(current_lines, keep_last)
             trim_time = time.time() - t0
         sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
         stages.append("Trimmed")
-        st.success(f"✅ Trimming completed in {trim_time:.4f}s")
+        st.success(f" Trimming completed in {trim_time:.4f}s")
 
     # Dedup
     if run_dedup:
-        with st.spinner("🧹 Deduplication in progress…"):
+        with st.spinner(" Deduplication in progress…"):
             t0 = time.time()
             current_lines = deduplicate(current_lines)
             dedup_time = time.time() - t0
         sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
         stages.append("Deduped")
-        st.success(f"✅ Deduplication completed in {dedup_time:.4f}s")
+        st.success(f" Deduplication completed in {dedup_time:.4f}s")
 
     # Summarize
     summary_lines = []
     if run_summary:
-        with st.spinner("📑 Summarizing data…"):
+        with st.spinner(" Summarizing data…"):
             t0 = time.time()
             summary_lines = summarize(current_lines, top_n)
             summarize_time = time.time() - t0
-        st.success(f"✅ Summarization completed in {summarize_time:.4f}s")
-        st.subheader("📋 Summary (Top N)")
+        st.success(f" Summarization completed in {summarize_time:.4f}s")
+        st.subheader(" Summary (Top N)")
         st.write("\n".join(summary_lines) if summary_lines else "_No repeating lines detected._")
 
     # Compress
     compressed_bytes = b""
     if run_compress:
-        with st.spinner("📦 Compressing data…"):
+        with st.spinner(" Compressing data…"):
             compressed_bytes = compress_text(current_lines)
         sizes.append(len(compressed_bytes))
         stages.append("Compressed")
-        st.success("✅ Compression completed")
+        st.success(" Compression completed")
 
     # Metrics table
     size_df = pd.DataFrame({
@@ -401,11 +401,11 @@ else:
         "Size (bytes)": sizes,
         "Size (formatted)": [fmt_size(s) for s in sizes]
     })
-    st.subheader("📏 Size Reduction Table")
+    st.subheader(" Size Reduction Table")
     st.dataframe(size_df, use_container_width=True)
 
     # Plotly Waterfall
-    st.subheader("📉 Size Reduction by Stage")
+    st.subheader(" Size Reduction by Stage")
     fig_waterfall = go.Figure(go.Waterfall(
         name="Data Reduction",
         orientation="v",
@@ -421,13 +421,13 @@ else:
     if len(sizes) > 1:
         reductions = [max(sizes[i-1] - sizes[i], 0) for i in range(1, len(sizes))]
         technique_labels = stages[1:]
-        st.subheader("🧩 Contribution to Space Savings")
+        st.subheader(" Contribution to Space Savings")
         fig_pie = px.pie(values=reductions, names=technique_labels, hole=0.4,
                          title="Technique Contribution")
         st.plotly_chart(fig_pie, use_container_width=True)
 
     # Downloads
-    st.subheader("⬇️ Downloads")
+    st.subheader(" Downloads")
     if run_trim:
         st.download_button("Download Trimmed File",
                            "\n".join(trim_keep_last(raw_lines, keep_last)),
@@ -542,13 +542,13 @@ stages: Names for each processing stage (Raw → Trimmed → Deduped → etc.). 
 
     st.markdown("#### 4. Trimming Stage")
     st.code(""" if run_trim:
-    with st.spinner("✂️ Trimming in progress…"):
+    with st.spinner(" Trimming in progress…"):
         t0 = time.time()
         current_lines = trim_keep_last(current_lines, keep_last)
         trim_time = time.time() - t0
     sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
     stages.append("Trimmed")
-    st.success(f"✅ Trimming completed in {trim_time:.4f}s")
+    st.success(f" Trimming completed in {trim_time:.4f}s")
 """)
     st.write("""If trimming is enabled:
 
@@ -564,13 +564,13 @@ stages: Names for each processing stage (Raw → Trimmed → Deduped → etc.). 
 
     st.markdown("#### 5. Deduplication Stage")
     st.code(""" if run_dedup:
-    with st.spinner("🧹 Deduplication in progress…"):
+    with st.spinner(" Deduplication in progress…"):
         t0 = time.time()
         current_lines = deduplicate(current_lines)
         dedup_time = time.time() - t0
     sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
     stages.append("Deduped")
-    st.success(f"✅ Deduplication completed in {dedup_time:.4f}s")
+    st.success(f" Deduplication completed in {dedup_time:.4f}s")
 """)
     st.write("""In Deduplication Stage:
 
@@ -583,12 +583,12 @@ stages: Names for each processing stage (Raw → Trimmed → Deduped → etc.). 
     st.markdown("#### 6. Summarization Stage")
     st.code(""" summary_lines = []
 if run_summary:
-    with st.spinner("📑 Summarizing data…"):
+    with st.spinner(" Summarizing data…"):
         t0 = time.time()
         summary_lines = summarize(current_lines, top_n)
         summarize_time = time.time() - t0
-    st.success(f"✅ Summarization completed in {summarize_time:.4f}s")
-    st.subheader("📋 Summary (Top N)")
+    st.success(f" Summarization completed in {summarize_time:.4f}s")
+    st.subheader(" Summary (Top N)")
     st.write("\n".join(summary_lines) if summary_lines else "_No repeating lines detected._")
 
 """)
@@ -603,11 +603,11 @@ if run_summary:
     st.markdown("#### 7. Compression Stage")
     st.code(""" compressed_bytes = b""
 if run_compress:
-    with st.spinner("📦 Compressing data…"):
+    with st.spinner(" Compressing data…"):
         compressed_bytes = compress_text(current_lines)
     sizes.append(len(compressed_bytes))
     stages.append("Compressed")
-    st.success("✅ Compression completed")
+    st.success(" Compression completed")
 
 """)
     st.write("""In Compression Stage:
@@ -624,7 +624,7 @@ if run_compress:
     "Size (bytes)": sizes,
     "Size (formatted)": [fmt_size(s) for s in sizes]
 })
-st.subheader("📏 Size Reduction Table")
+st.subheader(" Size Reduction Table")
 st.dataframe(size_df, use_container_width=True)
 
 """)
@@ -692,7 +692,7 @@ if run_compress:
     st.markdown("## Click Button To See Entire Code Snippets")
     if st.button("Show Code Snippets"):
         st.code("""    if not uploaded:
-        st.info("⬆️ Upload a file in the sidebar to begin.")
+        st.info(" Upload a file in the sidebar to begin.")
         st.stop()
 
     raw_lines = read_file(uploaded)
@@ -710,43 +710,43 @@ if run_compress:
 
     # Trim
     if run_trim:
-        with st.spinner("✂️ Trimming in progress…"):
+        with st.spinner(" Trimming in progress…"):
             t0 = time.time()
             current_lines = trim_keep_last(current_lines, keep_last)
             trim_time = time.time() - t0
         sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
         stages.append("Trimmed")
-        st.success(f"✅ Trimming completed in {trim_time:.4f}s")
+        st.success(f" Trimming completed in {trim_time:.4f}s")
 
     # Dedup
     if run_dedup:
-        with st.spinner("🧹 Deduplication in progress…"):
+        with st.spinner(" Deduplication in progress…"):
             t0 = time.time()
             current_lines = deduplicate(current_lines)
             dedup_time = time.time() - t0
         sizes.append(len("\n".join(current_lines).encode("utf-8", errors="ignore")))
         stages.append("Deduped")
-        st.success(f"✅ Deduplication completed in {dedup_time:.4f}s")
+        st.success(f" Deduplication completed in {dedup_time:.4f}s")
 
     # Summarize
     summary_lines = []
     if run_summary:
-        with st.spinner("📑 Summarizing data…"):
+        with st.spinner(" Summarizing data…"):
             t0 = time.time()
             summary_lines = summarize(current_lines, top_n)
             summarize_time = time.time() - t0
-        st.success(f"✅ Summarization completed in {summarize_time:.4f}s")
-        st.subheader("📋 Summary (Top N)")
+        st.success(f" Summarization completed in {summarize_time:.4f}s")
+        st.subheader(" Summary (Top N)")
         st.write("\n".join(summary_lines) if summary_lines else "_No repeating lines detected._")
 
     # Compress
     compressed_bytes = b""
     if run_compress:
-        with st.spinner("📦 Compressing data…"):
+        with st.spinner(" Compressing data…"):
             compressed_bytes = compress_text(current_lines)
         sizes.append(len(compressed_bytes))
         stages.append("Compressed")
-        st.success("✅ Compression completed")
+        st.success(" Compression completed")
 
     # Metrics table
     size_df = pd.DataFrame({
@@ -754,11 +754,11 @@ if run_compress:
         "Size (bytes)": sizes,
         "Size (formatted)": [fmt_size(s) for s in sizes]
     })
-    st.subheader("📏 Size Reduction Table")
+    st.subheader(" Size Reduction Table")
     st.dataframe(size_df, use_container_width=True)
 
     # Plotly Waterfall
-    st.subheader("📉 Size Reduction by Stage")
+    st.subheader(" Size Reduction by Stage")
     fig_waterfall = go.Figure(go.Waterfall(
         name="Data Reduction",
         orientation="v",
@@ -774,13 +774,13 @@ if run_compress:
     if len(sizes) > 1:
         reductions = [max(sizes[i-1] - sizes[i], 0) for i in range(1, len(sizes))]
         technique_labels = stages[1:]
-        st.subheader("🧩 Contribution to Space Savings")
+        st.subheader(" Contribution to Space Savings")
         fig_pie = px.pie(values=reductions, names=technique_labels, hole=0.4,
                          title="Technique Contribution")
         st.plotly_chart(fig_pie, use_container_width=True)
 
     # Downloads
-    st.subheader("⬇️ Downloads")
+    st.subheader(" Downloads")
     if run_trim:
         st.download_button("Download Trimmed File",
                            "\n".join(trim_keep_last(raw_lines, keep_last)),
@@ -817,5 +817,6 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
