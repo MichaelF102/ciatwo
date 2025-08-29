@@ -169,41 +169,68 @@ Final deliverables include:
 
 Critical Evaluation of Trade-offs in Space-Efficient Data Management
 1. Storage Efficiency vs. Latency
-\nBenefit: Trimming, deduplication, summarization, and compression can cut storage by large margins—especially for structured, repetitive datasets.
-\nTrade-off: Each of these steps adds CPU and/or I/O overhead. In batch-oriented systems, this is acceptable because data freshness is less critical. In low-latency or streaming pipelines, however, these extra stages slow ingestion and delay availability, which can hinder:
-    \nReal-time monitoring
-    \nAlerting/incident response
-    \nTime-sensitive analytics
-\nImplication: For real-time environments, optimizations like streaming-friendly algorithms (incremental deduplication, lightweight summarization) or hardware acceleration may be necessary.
+
+    Benefit: Trimming, deduplication, summarization, and compression can cut storage by large margins—especially for structured, repetitive datasets.
+    
+    Trade-off: Each of these steps adds CPU and/or I/O overhead. In batch-oriented systems, this is acceptable because data freshness is less critical. In low-latency or streaming pipelines, however, these extra stages slow ingestion and delay availability, which can hinder:
+    Real-time monitoring
+    
+    Alerting/incident response
+    
+    Time-sensitive analytics
+    
+    Implication: For real-time environments, optimizations like streaming-friendly algorithms (incremental deduplication, lightweight summarization) or hardware acceleration may be necessary.
 
 2. Data Fidelity vs. Reduction Aggressiveness 
-    \nBenefit: Lossless compression and exact deduplication preserve full detail while providing moderate savings.
-    \nTrade-off: Higher savings require lossy techniques (semantic deduplication, aggressive summarization), which remove event-level detail.
-    \nFine for trend analytics (KPIs, dashboards)
-    \nRisky for root-cause analysis, forensics, or debugging where raw context matters
-    \nOnce dropped, information cannot be reconstructed without keeping a parallel raw archive.
-    \nImplication: Tiered retention (recent data at full fidelity, older data summarized) can balance the need for insight with space savings.
+
+    Benefit: Lossless compression and exact deduplication preserve full detail while providing moderate savings.
+    
+    Trade-off: Higher savings require lossy techniques (semantic deduplication, aggressive summarization), which remove event-level detail.
+    
+    Fine for trend analytics (KPIs, dashboards)
+    
+    Risky for root-cause analysis, forensics, or debugging where raw context matters
+    
+    Once dropped, information cannot be reconstructed without keeping a parallel raw archive.
+    
+    Implication: Tiered retention (recent data at full fidelity, older data summarized) can balance the need for insight with space savings.
 
 3. Compliance & Auditability vs. Transformations
+
 •	Benefit: Transformed datasets are smaller and faster to query.
+
 •	Trade-off: Many compliance regimes (GDPR, HIPAA, SOX, financial audit rules) demand unaltered original records for certain durations. If summaries drop identifiers or context:
-o	You may fail to produce legally valid evidence
-o	Regulatory audits may be compromised
+
+1.	You may fail to produce legally valid evidence
+
+2.	Regulatory audits may be compromised
+
 •	This is especially risky in security logging or financial transaction domains.
+
 Implication: Apply selective reductions—preserve legally sensitive categories while optimizing routine or low-risk logs.
 
 4. Query Performance vs. Preprocessing Overhead
+
 •	Benefit: Smaller, pre-aggregated datasets often query faster, especially with analytics engines like Presto or ClickHouse.
+
 •	Trade-off: Producing these summaries consumes resources, and if a future query needs dimensions or raw fields that were discarded, the reduced dataset becomes a hard bottleneck.
+
 •	Without adaptive or multi-granular outputs, you risk having to reprocess raw data from scratch.
+
 Implication: Combining columnar formats (Parquet/ORC) with indexing can minimize these risks while retaining some flexibility.
 
 5. Generality vs. Domain-Specific Optimization
+
 •	Benefit: Generic reduction methods work across varied datasets with minimal tuning.
+
 •	Trade-off: They rarely match the compression and summarization efficiency of domain-specific schemes (e.g., schema-aware log compression).
-•	Domain-specific pipelines, however:
-o	Require ongoing maintenance when formats evolve
-o	May lock you into specific tools or vendors
+
+	They are Domain-specific pipelines, however:
+
+1.	Require ongoing maintenance when formats evolve
+
+2.	May lock you into specific tools or vendors
+
 Implication: Use hybrid strategies—generic algorithms as a baseline, domain-tuned modules where savings are substantial.
 
 6. Cost Savings vs. Operational Complexity
@@ -822,6 +849,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
