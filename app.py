@@ -208,6 +208,7 @@ Implication: Use hybrid strategies—generic algorithms as a baseline, domain-tu
 
 6. Cost Savings vs. Operational Complexity
 •	Benefit: Lower storage usage can directly reduce costs for:
+
 o	Cloud storage bills
 o	Backup/replication
 o	On-prem capacity expansions
@@ -817,6 +818,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
