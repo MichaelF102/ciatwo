@@ -222,9 +222,9 @@ Implication: Apply selective reductions—preserve legally sensitive categories 
 
 •	Trade-off: 
 
-	1. Producing these summaries consumes resources, and if a future query needs dimensions or raw fields that were discarded, the reduced dataset becomes a hard bottleneck.
+1. Producing these summaries consumes resources, and if a future query needs dimensions or raw fields that were discarded, the reduced dataset becomes a hard bottleneck.
 
-	2. Without adaptive or multi-granular outputs, you risk having to reprocess raw data from scratch.
+2. Without adaptive or multi-granular outputs, you risk having to reprocess raw data from scratch.
 
 Implication: Combining columnar formats (Parquet/ORC) with indexing can minimize these risks while retaining some flexibility.
 
@@ -858,6 +858,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
