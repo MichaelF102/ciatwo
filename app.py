@@ -207,16 +207,20 @@ o	May lock you into specific tools or vendors
 Implication: Use hybrid strategies—generic algorithms as a baseline, domain-tuned modules where savings are substantial.
 
 6. Cost Savings vs. Operational Complexity
+
 •	Benefit: Lower storage usage can directly reduce costs for:
 
-o	Cloud storage bills
-o	Backup/replication
-o	On-prem capacity expansions
+1.	Cloud storage bills
+2.	Backup/replication
+3.	On-prem capacity expansions
+
 •	Trade-off: Complex multi-stage pipelines:
-o	Increase operational overhead
-o	Introduce more failure points
-o	Require skilled staff for tuning and troubleshooting
-•	Over-optimization can lead to brittle systems that are expensive to maintain.
+
+1.	Increase operational overhead
+2.	Introduce more failure points
+3.	Require skilled staff for tuning and troubleshooting
+4.	Over-optimization can lead to brittle systems that are expensive to maintain.
+
 Implication: Evaluate total cost of ownership—storage savings should outweigh added complexity, monitoring, and personnel costs.
 
 Gaps & Potential Extensions
@@ -818,6 +822,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
