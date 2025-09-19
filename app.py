@@ -272,7 +272,7 @@ You already identified strong extensions; their value in context is:
 #### Name : Michael Fernandes
 #### UID : 2509006
 #### Roll No : 06
-#### Topic : Space-Efficient Data Management
+#### Topic : Optimizing Storage in the Era of Data Explosion: A Hybrid Strategy  
  """,
     "Results": """""",
     "Conclusion": """
@@ -368,7 +368,7 @@ else:
 # =========================
 # Main
 # =========================
-st.title("📦 Space-Efficient Data Pipeline ")
+st.title("📦 Optimizing Storage in the Era of Data Explosion: A Hybrid Strategy   ")
 
 if section != "Data Reduction":
     # Show the chosen paper section (no settings visible)
@@ -856,6 +856,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
