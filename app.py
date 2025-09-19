@@ -342,9 +342,7 @@ def fmt_size(bytes_size):
 st.sidebar.header("Navigation")
 section = st.sidebar.selectbox(
     "Select Section",
-    ["General", "Abstract", "Introduction", "Literature Review",
-     "Proposed Approach", "Methodology", "Data Reduction","Code Snippets","Results",
-     "Evaluation & Discussion", "Conclusion"]
+    ["General", "Data Reduction","Code Snippets","Results"]
 )
 
 # NOTE: No settings controls here unless section == "Data Reduction"
@@ -858,6 +856,7 @@ This paper investigates existing techniques and proposes a practical hybrid solu
 
 
 st.sidebar.write("Made By Michael Fernandes")
+
 
 
 
