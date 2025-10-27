@@ -1,0 +1,26 @@
+[
+  {
+    "source": "arXiv",
+    "title": "Quantum Kernel Alignment Beats Classical Baselines",
+    "url": "https://arxiv.org/abs/2403.01234",
+    "publishedAt": "2024-03-14",
+    "summary": "Empirical study showing kernel alignment strategies that improve QSVM generalization on financial datasets.",
+    "tags": ["Quantum Kernels", "Finance"]
+  },
+  {
+    "source": "IBM Research",
+    "title": "Hardware-Efficient Error Mitigation Toolkit Released",
+    "url": "https://research.ibm.com/blog/error-mitigation-toolkit",
+    "publishedAt": "2024-03-08",
+    "summary": "IBM open-sourced a composable stack for zero-noise extrapolation and probabilistic cancellation.",
+    "tags": ["Error Mitigation", "Tooling"]
+  },
+  {
+    "source": "Nature Quantum Information",
+    "title": "Photonic Transformers Scale Quantum Attention",
+    "url": "https://www.nature.com/articles/quantum-transformers",
+    "publishedAt": "2024-02-27",
+    "summary": "Photonic hardware demonstration of hybrid attention outperforming classical baselines on radar tasks.",
+    "tags": ["Quantum Transformers", "Photonics"]
+  }
+]

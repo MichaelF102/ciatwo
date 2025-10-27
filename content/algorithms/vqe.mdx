@@ -1,0 +1,18 @@
+export const metadata = {
+  name: 'Variational Quantum Eigensolver',
+  slug: 'vqe',
+  aliases: ['VQE'],
+  category: 'Variational Algorithms',
+  difficulty: 'Intermediate',
+  references: [
+    { label: 'Peruzzo et al. (2014)', url: 'https://arxiv.org/abs/1304.3061' },
+    { label: 'Kandala et al. (2017)', url: 'https://www.nature.com/articles/nature23879' }
+  ],
+  complexity: 'Hybrid: O(N_s \times C_{ansatz}) measurements',
+  useCases: ['Ground state estimation', 'Quantum chemistry'],
+  tags: ['Energy minimization', 'Ansatz design'],
+  intuition: 'Parameterize a shallow circuit, measure expectation values, and optimize classically to minimize energy.'
+};
+
+VQE iteratively updates circuit parameters to minimize the expectation value of a Hamiltonian. Measurement shot budget and error
+mitigation strategies largely determine achievable precision on near-term devices.

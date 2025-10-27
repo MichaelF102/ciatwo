@@ -1,0 +1,19 @@
+export const metadata = {
+  name: 'Quantum Support Vector Machine',
+  slug: 'qsvm',
+  aliases: ['QSVM'],
+  category: 'Kernel Methods',
+  difficulty: 'Intermediate',
+  references: [
+    { label: 'Rebentrost et al. (2014)', url: 'https://arxiv.org/abs/1406.0199' },
+    { label: 'Schuld & Killoran (2019)', url: 'https://arxiv.org/abs/1803.07128' }
+  ],
+  complexity: 'O(poly(n)) feature map + classical SVM solve',
+  useCases: ['Anomaly detection', 'Finance', 'Quantum chemistry'],
+  tags: ['Kernel', 'Classification'],
+  intuition: 'Embed classical data into a quantum feature space and leverage high-dimensional separability.'
+};
+
+Quantum support vector machines encode classical data via feature maps $\phi(x)$ implemented by quantum circuits. The kernel is
+evaluated as $k(x, x') = |\langle 0 | U_\phi(x)^{\dagger} U_\phi(x') | 0 \rangle|^2$ and fed into a classical SVM optimizer. The
+power of the approach hinges on the expressivity of $U_\phi$ and the ability to estimate overlaps with low variance.

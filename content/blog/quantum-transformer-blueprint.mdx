@@ -1,0 +1,26 @@
+export const metadata = {
+  title: 'Blueprint for Quantum Transformers',
+  slug: 'quantum-transformer-blueprint',
+  date: '2023-12-12',
+  tags: ['Quantum Transformers', 'Attention', 'Hybrid Models'],
+  excerpt: 'How to assemble hybrid attention layers with photonic encoders and variational mixers for sequence modeling.',
+  author: {
+    name: 'Priya Singh',
+    title: 'Doctoral Candidate @ MIT QIP'
+  },
+  readingTime: '8 min read'
+};
+
+Quantum transformers adapt the attention mechanism by encoding queries, keys, and values as parameterized quantum states. Hybrid
+architectures typically process embeddings classically before quantum mixing.
+
+### Architecture sketch
+
+- Photonic encoders prepare squeezed states representing token amplitudes.
+- Controlled-phase mixers implement attention weights via interferometer meshes.
+- Mid-circuit measurements feed classical post-processing layers.
+
+### Complexity discussion
+
+Hybrid quantum-classical attention achieves polylogarithmic depth in token length for certain structured inputs, but requires
+fault-tolerant photonic control for scalability.

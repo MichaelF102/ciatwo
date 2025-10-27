@@ -1,0 +1,18 @@
+export const metadata = {
+  name: 'Quantum Neural Network',
+  slug: 'quantum-neural-network',
+  aliases: ['QNN'],
+  category: 'Parameterized Circuits',
+  difficulty: 'Beginner',
+  references: [
+    { label: 'Benedetti et al. (2019)', url: 'https://www.nature.com/articles/s41467-019-13063-6' },
+    { label: 'Mari et al. (2020)', url: 'https://arxiv.org/abs/2001.11359' }
+  ],
+  complexity: 'Depends on ansatz depth and measurement budget',
+  useCases: ['Classification', 'Generative modeling'],
+  tags: ['Variational circuits', 'Expressivity'],
+  intuition: 'Stack parameterized quantum layers with nonlinear measurement post-processing akin to classical neural nets.'
+};
+
+Quantum neural networks generalize parameterized circuits with trainable layers and nonlinear measurement readouts. Gradient-based
+training uses parameter-shift rules while regularization combats barren plateaus.
