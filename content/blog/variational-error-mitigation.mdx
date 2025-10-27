@@ -1,0 +1,35 @@
+export const metadata = {
+  title: 'Variational Quantum Error Mitigation in Practice',
+  slug: 'variational-error-mitigation',
+  date: '2024-02-05',
+  tags: ['VQE', 'Error Mitigation', 'Noise'],
+  excerpt: 'Survey and benchmark of error mitigation primitives for variational circuits on superconducting hardware.',
+  author: {
+    name: 'Noah Chen',
+    title: 'Applied Scientist @ FluxQ'
+  },
+  readingTime: '7 min read'
+};
+
+Variational quantum algorithms are notoriously sensitive to coherent and stochastic noise. Error mitigation layers can recover
+useful expectation values without full-blown error correction.
+
+## Composite mitigation stack
+
+1. **Measurement error mitigation** using tensor-product calibration matrices.
+2. **Probabilistic error cancellation** with Pauli twirling.
+3. **Zero-noise extrapolation** with gate stretching on hardware-efficient ansätze.
+
+## Benchmark setup
+
+We evaluate each technique on a 16-qubit heavy-hex device with a VQE ansatz targeting the LiH ground state. Cross entropy is
+used as a stability metric across circuit depths.
+
+| Technique | Energy Error (mHa) | Shot Budget |
+|-----------|-------------------|-------------|
+| Baseline (no mitigation) | 23.1 | 5k |
+| Measurement mitigation | 12.4 | 5k |
+| PEC + ZNE | 5.9 | 20k |
+
+The resource overhead is considerable, but hybrid mitigation pipelines maintain chemical accuracy within realistic shot
+budgets.

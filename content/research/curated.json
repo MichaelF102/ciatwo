@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Generalization in Quantum Kernel Models",
+    "authors": ["Maria Schuld", "Nathan Killoran"],
+    "venue": "NeurIPS",
+    "year": 2023,
+    "url": "https://arxiv.org/abs/2306.00001",
+    "tags": ["Quantum Kernels", "Theory"],
+    "badge": "Survey"
+  },
+  {
+    "title": "Mitigating Noise in Variational Quantum Algorithms",
+    "authors": ["Abhinav Kandala", "Kristan Temme"],
+    "venue": "Nature",
+    "year": 2022,
+    "url": "https://www.nature.com/articles/mitigating-noise",
+    "tags": ["Error Mitigation", "VQE"],
+    "badge": "Benchmark"
+  },
+  {
+    "title": "Quantum Transformers for Sequence Modeling",
+    "authors": ["Ryosuke Katayama", "Yasuhiro Matsuo"],
+    "venue": "arXiv",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2402.12345",
+    "tags": ["Quantum Transformers", "Hybrid Models"],
+    "badge": "SOTA"
+  }
+]

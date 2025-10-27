@@ -1,0 +1,47 @@
+import CodeBlock from '@/components/CodeBlock';
+
+export const metadata = {
+  title: 'Quantum Kernel Methods: A Practical Playbook',
+  slug: 'quantum-kernel-playbook',
+  date: '2024-03-18',
+  tags: ['Quantum Kernels', 'QSVM', 'Feature Maps'],
+  excerpt:
+    'Build an intuition for quantum kernels, from feature map design to expressivity diagnostics, with ready-to-cite references.',
+  author: {
+    name: 'Elena Ruiz',
+    title: 'QML Researcher @ Qubit Labs'
+  },
+  readingTime: '9 min read',
+  canonicalUrl: 'https://qml-atlas.example.com/blogs/quantum-kernel-playbook'
+};
+
+Quantum kernel methods lift classical data into high-dimensional Hilbert spaces using parameterized feature maps. The induced
+kernel can be plugged into support vector machines or Gaussian processes to capture quantum correlations.
+
+## Designing feature maps
+
+A feature map $U_\phi(x)$ should encode task-relevant inductive biases while remaining hardware efficient. Expressivity can be
+assessed via the **Fourier spectrum** of the kernel.
+
+<CodeBlock language="python">
+{`from qiskit import QuantumCircuit
+from qiskit.circuit.library import ZZFeatureMap
+
+num_features = 4
+feature_map = ZZFeatureMap(feature_dimension=num_features, reps=2)
+print(feature_map.decompose().draw('text'))`}
+</CodeBlock>
+
+The overlap $k(x, x') = |\langle 0| U_\phi(x)^{\dagger} U_\phi(x') |0 \rangle|^2$ defines the kernel value. Efficient evaluation
+requires depth-aware compilation to minimize two-qubit gate errors.
+
+## Expressivity diagnostics
+
+- **Kernel alignment** with a uniform prior baseline highlights whether the feature map is informative.
+- **Eigenvalue spectrum** near rank-deficient regimes indicates overfitting and motivates regularization.
+- **Adversarial robustness** testing with randomized smoothings reveals gradient masking artifacts.
+
+## Citations to keep handy
+
+1. Schuld & Killoran (2019) "Quantum Machine Learning in Feature Hilbert Spaces".
+2. Hubregtsen et al. (2022) "Training Quantum Embedding Kernels on NISQ Devices".
